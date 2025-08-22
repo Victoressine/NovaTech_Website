@@ -209,72 +209,72 @@
         </div>
 
         <!-- Image Grid -->
-        <div class="relative">
-          <div class="relative mx-auto w-full max-w-md">
-            <div class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-brand-500/20 to-cyan-400/20 blur-2xl"></div>
-            <div class="grid grid-cols-3 gap-4 relative" id="imageGrid">
-              <!-- Images with Hover Zoom Effects -->
-              <div class="image-card zoom-center aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
-                <img src="Images/Web Design.png" alt="Image 1" class="w-full h-full object-cover" />
-              </div>
-              <div class="image-card zoom-left aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
-                <img src="Images/Diggity Marketing.jpg" alt="Image 2" class="w-full h-full object-cover" />
-              </div>
-              <div class="image-card zoom-rotate aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
-                <img src="Images/NovaTech copy.jpg" alt="Image 3" class="w-full h-full object-cover" />
-              </div>
-              <div class="image-card zoom-up col-span-2 aspect-[2/1] rounded-2xl overflow-hidden border border-white/10 relative">
-                <img src="Images/NovaTech copy.jpg" alt="Image 4" class="w-full h-full object-cover" />
-              </div>
-              <div class="image-card zoom-depth aspect-[2/3] rounded-2xl overflow-hidden border border-white/10 relative">
-                <img src="Images/NovaTech copy.jpg" alt="Image 5" class="w-full h-full object-cover" />
-              </div>
-            </div>
-          </div>
-
-          <style>
-            .image-card {
-              cursor: pointer;
-              transition: all 0.25s ease-in-out;
-            }
-            #imageGrid.active .image-card { opacity: 0.4; }
-            .image-card.active {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100% !important;
-              height: 100% !important;
-              z-index: 50;
-              opacity: 1 !important;
-              border-radius: 1rem;
-            }
-
-            /* Zoom Styles */
-            .zoom-center.active { transform: scale(1.2); }
-            .zoom-left.active { transform: scale(1.2) translateX(-5%); }
-            .zoom-up.active { transform: scale(1.2) translateY(-5%); }
-            .zoom-depth.active { transform: perspective(1000px) translateZ(80px) scale(1.1); }
-          </style>
-
-          <script>
-            const grid = document.getElementById("imageGrid");
-            const cards = document.querySelectorAll(".image-card");
-
-            cards.forEach(card => {
-              card.addEventListener("mouseenter", () => {
-                grid.classList.add("active");
-                card.classList.add("active");
-              });
-              card.addEventListener("mouseleave", () => {
-                grid.classList.remove("active");
-                card.classList.remove("active");
-              });
-            });
-          </script>
-
-        </div>
+<div class="relative">
+  <div class="relative mx-auto w-full max-w-md">
+    <div class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-brand-500/20 to-cyan-400/20 blur-2xl"></div>
+    <div class="grid grid-cols-3 gap-4 relative" id="imageGrid">
+      <!-- Images with Hover Zoom Effects -->
+      <div class="image-card zoom-center aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
+        <img src="Images/Web Design.png" alt="Image 1" class="w-full h-full object-cover" />
+      </div>
+      <div class="image-card zoom-left aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
+        <img src="Images/Diggity Marketing.jpg" alt="Image 2" class="w-full h-full object-cover" />
+      </div>
+      <div class="image-card zoom-rotate aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
+        <img src="Images/NovaTech copy.jpg" alt="Image 3" class="w-full h-full object-cover" />
+      </div>
+      <div class="image-card zoom-up col-span-2 aspect-[2/1] rounded-2xl overflow-hidden border border-white/10 relative">
+        <img src="Images/NovaTech copy.jpg" alt="Image 4" class="w-full h-full object-cover" />
+      </div>
+      <div class="image-card zoom-depth aspect-[2/3] rounded-2xl overflow-hidden border border-white/10 relative">
+        <img src="Images/NovaTech copy.jpg" alt="Image 5" class="w-full h-full object-cover" />
       </div>
     </div>
+  </div>
+
+  <style>
+    .image-card {
+      cursor: pointer;
+      transition: transform 0.4s ease; /* smooth zoom in/out */
+      transform: scale(1); /* default state */
+    }
+
+    #imageGrid.active .image-card { opacity: 0.4; } 
+    .image-card.active { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100% !important; 
+      height: 100% !important; 
+      z-index: 50; 
+      opacity: 1 !important; 
+      border-radius: 1rem; }
+
+    /* Zoom Styles */
+    .zoom-center.active { transform: scale(1.1); }
+    .zoom-left.active { transform: scale(1.1) translateX(-5%); }
+    .zoom-rotate.active { transform: scale(1.1) rotate(-5deg); }
+    .zoom-up.active { transform: scale(1.1) translateY(-5%); }
+    .zoom-depth.active { transform: perspective(1000px) translateZ(20px) scale(1.1); }
+  </style>
+
+  <script>
+    const grid = document.getElementById("imageGrid");
+    const cards = document.querySelectorAll(".image-card");
+
+    cards.forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        grid.classList.add("active");
+        card.classList.add("active");
+      });
+      card.addEventListener("mouseleave", () => {
+        grid.classList.remove("active");
+        card.classList.remove("active");
+      });
+    });
+  </script>
+</div>
+
   </section>
 
   <!-- About Section -->
