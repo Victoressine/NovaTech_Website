@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NovaTech</title>
+  <meta name="description"
+    content="NovaTech is a tech innovation hub delivering analytics, software development, cybersecurity, cloud, automation, and IoT solutions." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Google Fonts & Boxicons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef6ff',
+              100: '#d9ebff',
+              200: '#b9d9ff',
+              300: '#8ec1ff',
+              400: '#5ca2ff',
+              500: '#3a86ff',
+              600: '#2269e6',
+              700: '#1a53b8',
+              800: '#153f8a',
+              900: '#112f66',
+            },
+          },
+          boxShadow: {
+            soft: '0 10px 30px -15px rgba(0,0,0,0.25)',
+          },
+          maxWidth: {
+            content: '1200px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :focus-visible {
+      outline: 3px solid #3a86ff;
+      outline-offset: 2px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-400/30">
+
+  <!-- Skip to content for accessibility -->
+  <a href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 z-50 bg-white text-slate-900 px-4 py-2 rounded-lg shadow-soft">
+    Skip to Main Content
+  </a>
+
+  <!-- Background visuals -->
+  <div aria-hidden="true" class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div class="absolute -top-32 -left-32 h-[40rem] w-[40rem] bg-gradient-to-tr from-brand-500/20 via-indigo-400/10 to-transparent blur-3xl"></div>
+    <div class="absolute -bottom-40 -right-40 h-[38rem] w-[38rem] bg-gradient-to-tl from-cyan-400/20 via-brand-500/10 to-transparent blur-3xl"></div>
+    <div class="absolute inset-0 [background-image:linear-gradient(to_right,rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,.05)_1px,transparent_1px)] [background-size:40px_40px]"></div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-slate-950/60 border-b border-white/10">
+    <div class="mx-auto max-w-content px-4">
+      <div class="flex h-16 items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight">
+          <img src="Images/Logo.jpg" alt="NovaTech Logo" class="h-8 w-8 rounded-xl object-cover" />
+          <span class="text-white font-semibold text-lg">NovaTech</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#home" class="hover:text-brand-300 transition-colors">HOME</a>
+          <a href="#about" class="hover:text-brand-300 transition-colors">ABOUT</a>
+          <a href="#services" class="hover:text-brand-300 transition-colors">SERVICES</a>
+        </nav>
+
+        <!-- Desktop Call-to-action -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="#getintouch"
+            class="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-4 py-2 text-sm hover:bg-brand-400 transition-colors">
+            Get in touch
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn"
+          class="md:hidden inline-flex items-center justify-center rounded-xl p-2 bg-brand-400 hover:bg-brand-300"
+          aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <span class="text-sm font-semibold">Menu</span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="mobileNav" class="md:hidden hidden pb-4">
+        <div class="mt-2 grid gap-1 text-sm">
+          <a href="#home" class="rounded-lg px-3 py-2 hover:bg-white/5">HOME</a>
+          <a href="#about" class="rounded-lg px-3 py-2 hover:bg-white/5">ABOUT</a>
+          <a href="#services" class="rounded-lg px-3 py-2 hover:bg-white/5">SERVICES</a>
+          <a href="#getintouch" class="rounded-lg px-3 py-2 hover:bg-white/5">GET IN TOUCH</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
+      menuBtn.setAttribute('aria-expanded', !expanded);
+      mobileNav.classList.toggle('hidden');
+    });
+  </script>
+
+  <main id="main">
+
+  <!-- Hero Section -->
+  <section id="home" class="relative">
+    <div class="mx-auto max-w-content px-4 pt-16 pb-20 md:pt-24 md:pb-28">
+      <div class="grid items-center gap-8 md:grid-cols-2">
+
+        <!-- Text Content -->
+        <div>
+          <!-- Welcome Animation -->
+          <div class="overflow-hidden whitespace-nowrap">
+            <p class="inline-block animate-slide-color-pulse">
+              <i class='bx bx-world text-brand-400 text-2xl'></i> Welcome!
+            </p>
+          </div>
+
+          <style>
+            /* Slide, Color, and Pulse Animations */
+            @keyframes slide-in-out {
+              0% { transform: translateX(100%); opacity: 0; }
+              5% { transform: translateX(0); opacity: 1; }
+              95% { transform: translateX(0); opacity: 1; }
+              100% { transform: translateX(-100%); opacity: 0; }
+            }
+
+            @keyframes color-change {
+              0% { color: #ff4d4d; }
+              20% { color: #ffb84d; }
+              40% { color: #4dff4d; }
+              60% { color: #4dffff; }
+              80% { color: #4d4dff; }
+              100% { color: #ff4dff; }
+            }
+
+            @keyframes pulse-custom {
+              0%, 100% { opacity: 1; }
+              50% { opacity: 0.5; }
+            }
+
+            .animate-slide-color-pulse {
+              display: inline-block;
+              animation:
+                slide-in-out 32s ease-in-out forwards,
+                color-change 5s linear infinite,
+                pulse-custom 2s ease-in-out infinite;
+            }
+          </style>
+
+          <h1 class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Innovate with <span class="text-brand-400">NovaTech</span>
+          </h1>
+          <p class="mt-4 text-slate-300 max-w-xl">
+            Helping businesses grow with digital marketing, modern websites, and smart tech solutions.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#about"
+              class="inline-flex items-center justify-center rounded-2xl bg-brand-500 px-5 py-3 font-medium shadow-soft hover:bg-brand-400 transition-colors">
+              EXPLORE NOW
+            </a>
+            <a href="#services"
+              class="inline-flex items-center justify-center rounded-2xl border border-white/15 px-5 py-3 font-medium hover:bg-white/5 transition-colors">
+              Our Services
+            </a>
+          </div>
+        </div>
+
+        <!-- Image Grid -->
+        <div class="relative">
+          <div class="relative mx-auto w-full max-w-md">
+            <div class="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-tr from-brand-500/20 to-cyan-400/20 blur-2xl"></div>
+            <div class="grid grid-cols-3 gap-4 relative" id="imageGrid">
+              <!-- Images with Hover Zoom Effects -->
+              <div class="image-card zoom-center aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
+                <img src="Images/Web Design.png" alt="Image 1" class="w-full h-full object-cover" />
+              </div>
+              <div class="image-card zoom-left aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
+                <img src="Images/Diggity Marketing.jpg" alt="Image 2" class="w-full h-full object-cover" />
+              </div>
+              <div class="image-card zoom-rotate aspect-square rounded-2xl overflow-hidden border border-white/10 relative">
+                <img src="Images/NovaTech copy.jpg" alt="Image 3" class="w-full h-full object-cover" />
+              </div>
+              <div class="image-card zoom-up col-span-2 aspect-[2/1] rounded-2xl overflow-hidden border border-white/10 relative">
+                <img src="Images/NovaTech copy.jpg" alt="Image 4" class="w-full h-full object-cover" />
+              </div>
+              <div class="image-card zoom-depth aspect-[2/3] rounded-2xl overflow-hidden border border-white/10 relative">
+                <img src="Images/NovaTech copy.jpg" alt="Image 5" class="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+
+          <style>
+            .image-card {
+              cursor: pointer;
+              transition: all 0.25s ease-in-out;
+            }
+            #imageGrid.active .image-card { opacity: 0.4; }
+            .image-card.active {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100% !important;
+              height: 100% !important;
+              z-index: 50;
+              opacity: 1 !important;
+              border-radius: 1rem;
+            }
+
+            /* Zoom Styles */
+            .zoom-center.active { transform: scale(1.2); }
+            .zoom-left.active { transform: scale(1.2) translateX(-5%); }
+            .zoom-up.active { transform: scale(1.2) translateY(-5%); }
+            .zoom-depth.active { transform: perspective(1000px) translateZ(80px) scale(1.1); }
+          </style>
+
+          <script>
+            const grid = document.getElementById("imageGrid");
+            const cards = document.querySelectorAll(".image-card");
+
+            cards.forEach(card => {
+              card.addEventListener("mouseenter", () => {
+                grid.classList.add("active");
+                card.classList.add("active");
+              });
+              card.addEventListener("mouseleave", () => {
+                grid.classList.remove("active");
+                card.classList.remove("active");
+              });
+            });
+          </script>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="relative border-t border-white/10">
+    <div class="mx-auto max-w-content px-4 py-16 md:py-24">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+
+        <!-- Text -->
+        <div>
+          <p class="inline-block border-b-2 border-brand-300 text-brand-300 font-semibold text-xl tracking-wide">
+            About NovaTech
+          </p>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+            Building impactful, future-ready solutions
+          </h2>
+          <p class="mt-4 text-slate-300">
+            At NovaTech, we are committed to breaking limits and delivering solutions that make a real difference.
+            We focus on innovation and quality, helping businesses grow with powerful digital tools and services.
+          </p>
+          <div class="mt-6">
+            <a href="#services"
+              class="inline-flex items-center rounded-2xl bg-white/10 px-5 py-3 font-medium border border-white/10 hover:bg-white/15">
+              DISCOVER MORE
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="relative">
+          <div class="w-[500px] max-w-full overflow-hidden rounded-3xl border border-white/10">
+            <img src="Images/NovaTech copy.jpg" alt="NovaTech" class="w-full h-full rounded-2xl object-cover animate-float" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+    <!-- Services Section -->
+<section id="services" class="relative border-t border-white/10">
+  <div class="mx-auto max-w-content px-4 py-16 md:py-24">
+
+    <!-- Section Header -->
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="inline-block text-brand-300 text-3xl border-b-2 border-brand-300 font-semibold tracking-wide">
+        Our Services
+      </p>
+      <p class="mt-6 text-slate-300">
+        We enable the full digital transformation lifecycle, from strategy to successful delivery.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+      <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft hover:-translate-y-1 transition-transform">
+        <h3 class="text-xl text-brand-300 font-semibold">Website Design & Development</h3>
+        <p class="mt-2 text-slate-300">
+          Our expert website design and development services create visually stunning, user-friendly, and high-performing websites. We blend modern aesthetics with seamless functionality to ensure your online presence captivates visitors, enhances engagement, and drives business growth.
+        </p>
+      </article>
+
+      <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft hover:-translate-y-1 transition-transform">
+        <h3 class="text-xl text-brand-300 font-semibold">Digital Marketing</h3>
+        <p class="mt-2 text-slate-300">
+          Our data-driven digital marketing strategies help businesses reach the right audience, boost engagement, and increase conversions. By combining creative campaigns with advanced analytics, we deliver measurable results that drive growth and strengthen brand presence.
+        </p>
+      </article>
+
+      <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft hover:-translate-y-1 transition-transform">
+        <h3 class="text-xl text-brand-300 font-semibold">LinkedIn Lead Generation</h3>
+        <p class="mt-2 text-slate-300">
+          Our LinkedIn lead generation services leverage Sales Navigator to identify and connect with your ideal prospects. By combining precise targeting with personalized outreach, we help businesses generate high-quality leads, nurture relationships, and drive measurable growth.
+        </p>
+      </article>
+
+      <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft hover:-translate-y-1 transition-transform">
+        <h3 class="text-xl text-brand-300 font-semibold">Email Marketing</h3>
+        <p class="mt-2 text-slate-300">
+          Our email marketing solutions deliver targeted, personalized campaigns that engage your audience and drive conversions. By combining compelling content with strategic automation and performance analytics, we help businesses nurture leads, boost retention, and achieve measurable growth.
+        </p>
+      </article>
+
+      <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft hover:-translate-y-1 transition-transform">
+        <h3 class="text-xl text-brand-300 font-semibold">Data Entry & Analysis</h3>
+        <p class="mt-2 text-slate-300">
+          Our data entry and analysis services ensure accurate, organized, and actionable information for your business. By efficiently managing data and applying advanced analytics, we help you uncover insights, streamline operations, and make informed decisions that drive growth.
+        </p>
+      </article>
+
+      <article class="group rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft hover:-translate-y-1 transition-transform">
+        <h3 class="text-xl text-brand-300 font-semibold">IT Services</h3>
+        <p class="mt-2 text-slate-300">
+          Our comprehensive IT services provide reliable, secure, and scalable technology solutions for businesses of all sizes. From infrastructure management to software support, we ensure your systems run smoothly, empowering your team to focus on growth and innovation.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+<section id="getintouch" class="relative border-y border-white/10">
+  <div class="mx-auto max-w-content px-4 py-16 md:py-24">
+    <div class="grid gap-10 md:grid-cols-2">
+
+      <!-- Contact Info -->
+      <div>
+        <p class="text-brand-300 border-b-2 border-brand-300 font-semibold tracking-wide text-xl inline-block">
+          Get In Touch
+        </p>
+        <h2 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Let’s elevate your business</h2>
+        <p class="mt-4 text-slate-300">
+          Get in touch with us to discover how NovaTech can elevate your business. We're here to answer your inquiries and discuss your tech needs.
+        </p>
+
+        <div class="mt-6 grid gap-4 text-sm">
+          <a href="tel:+233595068294" class="flex items-center gap-2">
+            <i class="bx bx-phone text-3xl text-white transform transition-transform duration-300 hover:scale-125"></i>
+            <span class="text-white">+233 59 506 8294</span>
+          </a>
+
+          <a href="https://wa.me/233595068294" target="_blank" class="flex items-center gap-2">
+            <i class="bx bxl-whatsapp text-3xl text-green-500 transform transition-transform duration-300 hover:scale-125"></i>
+            <span class="text-white">WhatsApp</span>
+          </a>
+
+          <a href="https://www.instagram.com/novatech_global/" target="_blank" class="flex items-center gap-2">
+            <i class="bx bxl-instagram text-3xl text-pink-500 transform transition-transform duration-300 hover:scale-125"></i>
+            <span class="text-white">Instagram</span>
+          </a>
+
+          <a href="https://www.linkedin.com/company/novatechglobal/?viewAsMember=true" target="_blank" class="flex items-center gap-2">
+            <i class="bx bxl-linkedin-square text-3xl text-blue-500 transform transition-transform duration-300 hover:scale-125"></i>
+            <span class="text-white">LinkedIn</span>
+          </a>
+
+          <a href="mailto:novatechdigital8@gmail.com" class="flex items-center gap-2">
+            <i class="bx bx-envelope text-3xl text-teal-500 transform transition-transform duration-300 hover:scale-125"></i>
+            <span class="text-white">novatechdigital8@gmail.com</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contactForm" action="https://formspree.io/f/xvgqebjj" method="POST"
+        class="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-soft">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="firstName" class="text-sm text-slate-300">First name*</label>
+            <input id="firstName" name="firstName" required
+              class="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 outline-none placeholder:text-slate-500 focus:border-brand-400"
+              placeholder="First name" />
+          </div>
+          <div>
+            <label for="lastName" class="text-sm text-slate-300">Last name*</label>
+            <input id="lastName" name="lastName" required
+              class="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 outline-none placeholder:text-slate-500 focus:border-brand-400"
+              placeholder="Last name" />
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <label for="email" class="text-sm text-slate-300">Email*</label>
+          <input id="email" name="email" type="email" required
+            class="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 outline-none placeholder:text-slate-500 focus:border-brand-400"
+            placeholder="you@example.com" />
+        </div>
+
+        <div class="mt-4">
+          <label for="phone" class="text-sm text-slate-300">Phone</label>
+          <input id="phone" name="phone" type="tel"
+            class="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 outline-none placeholder:text-slate-500 focus:border-brand-400"
+            placeholder="+123 456 7890" />
+        </div>
+
+        <div class="mt-4">
+          <label for="message" class="text-sm text-slate-300">Message</label>
+          <textarea id="message" name="message" rows="5"
+            class="mt-1 w-full rounded-xl border border-white/10 bg-slate-900/60 px-3 py-2 outline-none placeholder:text-slate-500 focus:border-brand-400"
+            placeholder="How can we help?"></textarea>
+        </div>
+
+        <div class="mt-6">
+          <button type="submit"
+            class="w-full rounded-2xl bg-brand-500 px-5 py-3 font-medium shadow-soft hover:bg-brand-400 transition-colors">
+            SEND
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-slate-950">
+  <div class="mx-auto max-w-content px-4 py-10">
+    <div class="grid gap-8 md:grid-cols-3">
+
+      <!-- Logo -->
+      <div class="space-y-2 flex items-center gap-2 font-semibold tracking-tight">
+        <img src="Images/Logo.jpg" alt="NovaTech Logo" class="h-8 w-8 rounded-xl object-cover" />
+        <span class="text-white font-semibold text-lg">NovaTech</span>
+      </div>
+
+      <!-- Links -->
+      <div class="text-sm text-slate-300 space-y-2">
+        <a href="#" class="block hover:underline">Privacy Policy</a>
+        <a href="#" class="block hover:underline">Accessibility Statement</a>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-sm text-slate-300 space-y-2">
+        <p>© 2025 by NovaTech.</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript: Mobile nav toggle & smooth scroll -->
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.classList.toggle('hidden');
+    });
+
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileNav.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Active link highlight on scroll
+  const sections = ['home', 'about', 'services', 'getintouch']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
+
+  const setActive = () => {
+    let current = sections[0]?.id;
+    const offset = 120;
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top - offset <= 0) current = sec.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('text-brand-300', link.getAttribute('href') === `#${current}`);
+    });
+  };
+
+  window.addEventListener('scroll', setActive, { passive: true });
+  window.addEventListener('load', setActive);
+</script>
+
+</body>
+
+</html>
